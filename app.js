@@ -1,54 +1,39 @@
-// FX Watchlist Main Engine
-
-
 let data = {};
-const watchPairs = [
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-["MYR","USD"],
-["MYR","SGD"],
-["MYR","HKD"],
-["MYR","CNY"],
-["MYR","EUR"],
-
-["SGD","MYR"],
-["SGD","USD"],
-["SGD","HKD"],
-["SGD","JPY"],
-
-["HKD","MYR"],
-["HKD","SGD"],
-["HKD","USD"],
-
-["USD","MYR"],
-["USD","SGD"],
-["USD","HKD"],
-["USD","EUR"],
-["USD","JPY"],
-
-["EUR","USD"],
-["GBP","USD"],
-["AUD","USD"],
-["JPY","USD"]
-
+const order = [
+    "MYR",
+    "SGD",
+    "HKD",
+    "USD",
+    "CNY",
+    "JPY",
+    "EUR",
+    "GBP",
+    "AUD",
+    "NZD",
+    "THB",
+    "IDR",
+    "PHP",
+    "VND",
+    "INR"
 ];
 
-const API_URL = 
-"https://open.er-api.com/v6/latest/USD";
-
-
-// Load currency database
 
 async function loadCurrencies(){
 
-    const local =
+    const currencyFile =
     await fetch("currencies.json");
 
     data =
-    await local.json();
+    await currencyFile.json();
 
 
     const live =
-    await fetch(API_URL);
+    await fetch(
+    "https://open.er-api.com/v6/latest/USD"
+    );
+
 
     const liveData =
     await live.json();
@@ -59,49 +44,39 @@ async function loadCurrencies(){
         data.rates =
         liveData.rates;
 
-        data.updated =
-        new Date().toLocaleString();
-
     }
+
+
+    document.getElementById(
+    "last-update"
+    ).innerHTML =
+    "Last update: "
+    +
+    new Date().toLocaleString();
 
 
     renderCurrencies();
 
     setupConverter();
 
-
-    document.getElementById("last-update").innerHTML =
-    "Last update: " + data.updated;
-
-}
-
-
-    document.getElementById("last-update").innerHTML =
-    "Last update: " + data.updated;
+    renderFavorites();
 
 }
 
 
 
 loadCurrencies();
-setInterval(()=>{
-
-    loadCurrencies();
-
-},60000);
 
 
 
-// Calculate exchange rate
+
 
 function exchange(from,to){
 
-    let usdFrom = data.rates[from];
-
-    let usdTo = data.rates[to];
-
-
-    return usdTo / usdFrom;
+    return (
+        data.rates[to] /
+        data.rates[from]
+    );
 
 }
 
@@ -109,221 +84,150 @@ function exchange(from,to){
 
 
 
-// Display currency dashboard
-
 function renderCurrencies(search=""){
 
 
-    const container =
-    document.getElementById("currency-list");
+let box =
+document.getElementById(
+"currency-list"
+);
 
 
-    container.innerHTML="";
-
-
-
-    [
-"MYR",
-"SGD",
-"HKD",
-"USD",
-"CNY",
-"JPY",
-"EUR",
-"GBP",
-"AUD",
-"NZD",
-"THB",
-"IDR",
-"PHP",
-"VND",
-"INR",
-"AED",
-"SAR",
-"CHF",
-"CAD",
-"KRW",
-"TWD",
-"ZAR",
-"BRL",
-"MXN",
-"TRY",
-"RUB"
-
-].forEach(base=>{
-
-
-        let name =
-        data.currencies[base];
+box.innerHTML="";
 
 
 
-        if(
-            search &&
-            !base.toLowerCase()
-            .includes(search.toLowerCase()) &&
-            !name.toLowerCase()
-            .includes(search.toLowerCase())
-        ){
+order.forEach(base=>{
 
-            return;
 
-        }
+if(!data.currencies[base])
+return;
 
 
 
-        let html = `
-
-        <div class="card">
-
-        <div class="country-title">
-
-        ${base} — ${name}
-
-        </div>
-
-        `;
+let currency =
+data.currencies[base];
 
 
 
-        watchPairs.forEach(pair=>{
+if(
+search &&
+!base.toLowerCase()
+.includes(search.toLowerCase()) &&
+!currency.name.toLowerCase()
+.includes(search.toLowerCase())
+){
+
+return;
+
+}
 
 
-let base = pair[0];
 
-let target = pair[1];
+let html = `
+
+<div class="card">
+
+
+<div class="country-title">
+
+${currency.flag}
+${base}
+
+<br>
+
+<span class="currency-name">
+${currency.name}
+</span>
+
+
+</div>
+
+
+`;
+
+
+
+order.forEach(target=>{
+
+
+if(
+target===base ||
+!data.currencies[target]
+)
+return;
+
 
 
 let rate =
 exchange(base,target);
 
 
+
 let reverse =
 exchange(target,base);
+
 
 
 html += `
 
 <div class="pair-card">
 
-<b>
+
+<div class="pair-title">
+
 ${base} ⇄ ${target}
-</b>
+
+</div>
+
 
 <div class="rate">
+
 1 ${base} =
 ${rate.toFixed(4)}
 ${target}
+
 </div>
 
 
 <div class="reverse">
+
 1 ${target} =
 ${reverse.toFixed(4)}
 ${base}
+
 </div>
+
+
+<button
+onclick="addFavorite('${base}','${target}')">
+
+⭐ Add
+
+</button>
 
 
 </div>
 
 `;
 
+
+
 });
 
 
-            if(base===target)
-            return;
+
+html += "</div>";
+
+box.innerHTML += html;
 
 
-
-            if(
-            search &&
-            !target.toLowerCase()
-            .includes(search.toLowerCase())
-            )
-            return;
-
-
-
-            let rate =
-            exchange(base,target);
-
-
-
-            let reverse =
-            exchange(target,base);
-
-
-
-            html += `
-
-
-            <div class="pair-card">
-
-
-            <div class="pair-header">
-
-            <span>
-            ${base} ⇄ ${target}
-            </span>
-
-
-            <span 
-            class="star"
-            onclick="addFavorite('${base}','${target}')">
-
-            ⭐
-
-            </span>
-
-
-            </div>
-
-
-            <div class="rate">
-
-            1 ${base} =
-            ${rate.toFixed(4)}
-            ${target}
-
-            </div>
-
-
-            <div class="reverse">
-
-            1 ${target} =
-            ${reverse.toFixed(4)}
-            ${base}
-
-            </div>
-
-
-            </div>
-
-
-            `;
-
-
-        });
-
-
-
-        html += "</div>";
-
-
-        container.innerHTML += html;
-
-
-    });
-
+});
 
 
 }
 
 
-
-
-// Search
 
 
 document
@@ -341,8 +245,6 @@ renderCurrencies(this.value);
 
 
 
-// Favorites
-
 
 function addFavorite(from,to){
 
@@ -353,17 +255,21 @@ from + "/" + to;
 
 if(!favorites.includes(pair)){
 
+
 favorites.push(pair);
+
 
 localStorage.setItem(
 "favorites",
 JSON.stringify(favorites)
 );
 
+
 }
 
 
 renderFavorites();
+
 
 }
 
@@ -372,8 +278,11 @@ renderFavorites();
 
 function renderFavorites(){
 
+
 let box =
-document.getElementById("favorite-list");
+document.getElementById(
+"favorite-list"
+);
 
 
 box.innerHTML="";
@@ -382,63 +291,40 @@ box.innerHTML="";
 favorites.forEach(pair=>{
 
 
-let parts =
+let p =
 pair.split("/");
 
 
 let rate =
-exchange(parts[0],parts[1]);
+exchange(
+p[0],
+p[1]
+);
+
 
 
 box.innerHTML += `
 
 <div class="favorite-card">
 
+
 <b>
-${parts[0]} / ${parts[1]}
+${p[0]} ⇄ ${p[1]}
 </b>
+
 
 <br>
 
-1 ${parts[0]} =
+
+1 ${p[0]} =
 ${rate.toFixed(4)}
-${parts[1]}
+${p[1]}
+
 
 </div>
 
 `;
 
-});
-
-
-}
-
-
-let box =
-document.getElementById("favorite-list");
-
-
-box.innerHTML="";
-
-
-favorites.forEach(pair=>{
-
-
-let parts =
-pair.split("/");
-
-
-box.innerHTML += `
-
-
-<div class="favorite-card">
-
-${parts[0]} ⇄ ${parts[1]}
-
-</div>
-
-
-`;
 
 
 });
@@ -447,14 +333,9 @@ ${parts[0]} ⇄ ${parts[1]}
 }
 
 
-renderFavorites();
 
 
 
-
-
-
-// Converter
 
 
 function setupConverter(){
@@ -466,6 +347,10 @@ document.getElementById("from");
 
 let to =
 document.getElementById("to");
+
+
+if(from.options.length)
+return;
 
 
 
@@ -490,9 +375,7 @@ from.value="USD";
 to.value="MYR";
 
 
-
 updateConverter();
-
 
 
 }
@@ -522,19 +405,22 @@ document.getElementById("to").value;
 
 let result =
 amount *
-exchange(from,to);
+exchange(
+from,
+to
+);
 
 
 
-document
-.getElementById("conversion-result")
+document.getElementById(
+"conversion-result"
+)
 .innerHTML =
 
 amount +
 " " +
 from +
 " = " +
-
 result.toFixed(4)
 +
 " "
@@ -543,6 +429,7 @@ to;
 
 
 }
+
 
 
 
@@ -570,12 +457,12 @@ document
 "change",
 updateConverter
 );
+
+
+
 document
 .getElementById("refresh")
 .addEventListener(
 "click",
-()=>{
-
-loadCurrencies();
-
-});
+loadCurrencies
+);
