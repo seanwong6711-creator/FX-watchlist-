@@ -299,6 +299,47 @@ renderFavorites();
 
 function renderFavorites(){
 
+let box =
+document.getElementById("favorite-list");
+
+
+box.innerHTML="";
+
+
+favorites.forEach(pair=>{
+
+
+let parts =
+pair.split("/");
+
+
+let rate =
+exchange(parts[0],parts[1]);
+
+
+box.innerHTML += `
+
+<div class="favorite-card">
+
+<b>
+${parts[0]} / ${parts[1]}
+</b>
+
+<br>
+
+1 ${parts[0]} =
+${rate.toFixed(4)}
+${parts[1]}
+
+</div>
+
+`;
+
+});
+
+
+}
+
 
 let box =
 document.getElementById("favorite-list");
