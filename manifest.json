@@ -1,0 +1,26 @@
+{
+  "name": "FX Watchlist",
+  "short_name": "FX Watchlist",
+
+  "description": "XE-style currency monitoring dashboard",
+
+  "start_url": "./",
+
+  "display": "standalone",
+
+  "background_color": "#f4f5f7",
+
+  "theme_color": "#ffffff",
+
+  "orientation": "portrait",
+
+  "icons": [
+
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+
+  ]
+}
