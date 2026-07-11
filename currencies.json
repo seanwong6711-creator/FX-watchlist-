@@ -1,45 +1,88 @@
 {
-  "updated": "Auto update",
-
   "currencies": {
 
-    "USD":"🇺🇸 United States Dollar",
-    "EUR":"🇪🇺 Euro",
-    "GBP":"🇬🇧 British Pound",
-    "JPY":"🇯🇵 Japanese Yen",
-    "CHF":"🇨🇭 Swiss Franc",
-    "AUD":"🇦🇺 Australian Dollar",
-    "CAD":"🇨🇦 Canadian Dollar",
-    "NZD":"🇳🇿 New Zealand Dollar",
+    "MYR": {
+      "flag": "🇲🇾",
+      "name": "Malaysian Ringgit"
+    },
 
-    "MYR":"🇲🇾 Malaysian Ringgit",
-    "SGD":"🇸🇬 Singapore Dollar",
-    "HKD":"🇭🇰 Hong Kong Dollar",
-    "CNY":"🇨🇳 Chinese Yuan",
-    "TWD":"🇹🇼 Taiwan Dollar",
-    "KRW":"🇰🇷 Korean Won",
+    "SGD": {
+      "flag": "🇸🇬",
+      "name": "Singapore Dollar"
+    },
 
-    "THB":"🇹🇭 Thai Baht",
-    "IDR":"🇮🇩 Indonesian Rupiah",
-    "PHP":"🇵🇭 Philippine Peso",
-    "VND":"🇻🇳 Vietnamese Dong",
+    "HKD": {
+      "flag": "🇭🇰",
+      "name": "Hong Kong Dollar"
+    },
 
-    "INR":"🇮🇳 Indian Rupee",
-    "AED":"🇦🇪 UAE Dirham",
-    "SAR":"🇸🇦 Saudi Riyal",
-    "QAR":"🇶🇦 Qatari Riyal",
+    "USD": {
+      "flag": "🇺🇸",
+      "name": "US Dollar"
+    },
 
-    "ZAR":"🇿🇦 South African Rand",
-    "BRL":"🇧🇷 Brazilian Real",
-    "MXN":"🇲🇽 Mexican Peso",
-    "TRY":"🇹🇷 Turkish Lira",
-    "RUB":"🇷🇺 Russian Ruble"
+    "CNY": {
+      "flag": "🇨🇳",
+      "name": "Chinese Yuan"
+    },
+
+    "JPY": {
+      "flag": "🇯🇵",
+      "name": "Japanese Yen"
+    },
+
+    "EUR": {
+      "flag": "🇪🇺",
+      "name": "Euro"
+    },
+
+    "GBP": {
+      "flag": "🇬🇧",
+      "name": "British Pound"
+    },
+
+    "AUD": {
+      "flag": "🇦🇺",
+      "name": "Australian Dollar"
+    },
+
+    "NZD": {
+      "flag": "🇳🇿",
+      "name": "New Zealand Dollar"
+    },
+
+    "THB": {
+      "flag": "🇹🇭",
+      "name": "Thai Baht"
+    },
+
+    "IDR": {
+      "flag": "🇮🇩",
+      "name": "Indonesian Rupiah"
+    },
+
+    "PHP": {
+      "flag": "🇵🇭",
+      "name": "Philippine Peso"
+    },
+
+    "VND": {
+      "flag": "🇻🇳",
+      "name": "Vietnamese Dong"
+    },
+
+    "INR": {
+      "flag": "🇮🇳",
+      "name": "Indian Rupee"
+    }
 
   },
 
+
   "rates": {
 
-    "USD":1
+    "USD": 1
 
   }
+
 }
