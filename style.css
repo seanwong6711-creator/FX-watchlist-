@@ -9,7 +9,7 @@ body {
 
     padding:20px;
 
-    background:#f4f5f7;
+    background:#f5f6f8;
 
     font-family:
     -apple-system,
@@ -48,6 +48,7 @@ h2 {
 }
 
 
+
 input,
 select {
 
@@ -55,11 +56,33 @@ select {
 
     padding:14px;
 
+    margin-bottom:10px;
+
     border-radius:12px;
 
     border:1px solid #ddd;
 
     background:white;
+
+    font-size:16px;
+
+}
+
+
+
+button {
+
+    width:100%;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:#111;
+
+    color:white;
 
     font-size:16px;
 
@@ -73,14 +96,14 @@ select {
 
     background:white;
 
-    border-radius:18px;
-
-    padding:16px;
+    padding:18px;
 
     margin-top:15px;
 
+    border-radius:20px;
+
     box-shadow:
-    0 2px 8px rgba(0,0,0,0.06);
+    0 2px 10px rgba(0,0,0,0.06);
 
 }
 
@@ -88,11 +111,21 @@ select {
 
 .country-title {
 
-    font-size:20px;
+    font-size:26px;
 
     font-weight:700;
 
-    margin-bottom:12px;
+}
+
+
+
+.currency-name {
+
+    font-size:14px;
+
+    color:#777;
+
+    font-weight:400;
 
 }
 
@@ -102,21 +135,19 @@ select {
 
     background:#f7f8fa;
 
-    border-radius:14px;
-
     padding:14px;
 
-    margin-top:10px;
+    margin-top:12px;
+
+    border-radius:14px;
 
 }
 
 
 
-.pair-header {
+.pair-title {
 
-    display:flex;
-
-    justify-content:space-between;
+    font-size:17px;
 
     font-weight:700;
 
@@ -126,7 +157,7 @@ select {
 
 .rate {
 
-    font-size:18px;
+    font-size:20px;
 
     margin-top:8px;
 
@@ -136,19 +167,9 @@ select {
 
 .reverse {
 
-    color:#666;
+    color:#777;
 
     margin-top:5px;
-
-}
-
-
-
-.star {
-
-    cursor:pointer;
-
-    font-size:20px;
 
 }
 
@@ -158,9 +179,9 @@ select {
 
     background:white;
 
-    padding:12px;
+    padding:15px;
 
-    border-radius:14px;
+    border-radius:15px;
 
     margin-top:10px;
 
@@ -172,21 +193,11 @@ select {
 
     background:white;
 
-    padding:16px;
+    padding:18px;
 
-    margin-top:20px;
+    border-radius:20px;
 
-    border-radius:18px;
-
-}
-
-
-
-button {
-
-    border:0;
-
-    background:none;
+    margin-top:25px;
 
 }
 
@@ -196,9 +207,9 @@ footer {
 
     text-align:center;
 
-    margin-top:30px;
-
     color:#777;
+
+    margin-top:25px;
 
     font-size:13px;
 
@@ -207,16 +218,14 @@ footer {
 
 
 
-/* iPhone dark mode */
-
 @media (prefers-color-scheme:dark) {
 
 
 body {
 
-background:#111;
+    background:#111;
 
-color:white;
+    color:white;
 
 }
 
@@ -225,14 +234,14 @@ color:white;
 .favorite-card,
 #converter {
 
-background:#222;
+    background:#222;
 
 }
 
 
 .pair-card {
 
-background:#333;
+    background:#333;
 
 }
 
@@ -240,18 +249,29 @@ background:#333;
 input,
 select {
 
-background:#222;
+    background:#222;
 
-color:white;
+    color:white;
 
-border-color:#555;
+    border-color:#555;
 
 }
 
 
-.reverse {
+.currency-name,
+.reverse,
+footer {
 
-color:#bbb;
+    color:#aaa;
+
+}
+
+
+button {
+
+    background:white;
+
+    color:black;
 
 }
 
