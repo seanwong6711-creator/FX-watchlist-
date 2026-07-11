@@ -4,20 +4,48 @@
 let data = {};
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
+const API_URL = 
+"https://open.er-api.com/v6/latest/USD";
 
 
 // Load currency database
 
 async function loadCurrencies(){
 
-    const response = await fetch("currencies.json");
+    const local =
+    await fetch("currencies.json");
 
-    data = await response.json();
+    data =
+    await local.json();
+
+
+    const live =
+    await fetch(API_URL);
+
+    const liveData =
+    await live.json();
+
+
+    if(liveData.rates){
+
+        data.rates =
+        liveData.rates;
+
+        data.updated =
+        new Date().toLocaleString();
+
+    }
 
 
     renderCurrencies();
 
     setupConverter();
+
+
+    document.getElementById("last-update").innerHTML =
+    "Last update: " + data.updated;
+
+}
 
 
     document.getElementById("last-update").innerHTML =
