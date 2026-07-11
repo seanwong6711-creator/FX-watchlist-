@@ -90,8 +90,35 @@ function renderCurrencies(search=""){
 
 
 
-    Object.keys(data.currencies)
-    .forEach(base=>{
+    [
+"MYR",
+"SGD",
+"HKD",
+"USD",
+"CNY",
+"JPY",
+"EUR",
+"GBP",
+"AUD",
+"NZD",
+"THB",
+"IDR",
+"PHP",
+"VND",
+"INR",
+"AED",
+"SAR",
+"CHF",
+"CAD",
+"KRW",
+"TWD",
+"ZAR",
+"BRL",
+"MXN",
+"TRY",
+"RUB"
+
+].forEach(base=>{
 
 
         let name =
