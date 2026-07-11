@@ -2,7 +2,35 @@
 
 
 let data = {};
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+const watchPairs = [
+
+["MYR","USD"],
+["MYR","SGD"],
+["MYR","HKD"],
+["MYR","CNY"],
+["MYR","EUR"],
+
+["SGD","MYR"],
+["SGD","USD"],
+["SGD","HKD"],
+["SGD","JPY"],
+
+["HKD","MYR"],
+["HKD","SGD"],
+["HKD","USD"],
+
+["USD","MYR"],
+["USD","SGD"],
+["USD","HKD"],
+["USD","EUR"],
+["USD","JPY"],
+
+["EUR","USD"],
+["GBP","USD"],
+["AUD","USD"],
+["JPY","USD"]
+
+];
 
 const API_URL = 
 "https://open.er-api.com/v6/latest/USD";
