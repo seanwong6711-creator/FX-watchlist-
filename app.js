@@ -182,8 +182,49 @@ function renderCurrencies(search=""){
 
 
 
-        Object.keys(data.currencies)
-        .forEach(target=>{
+        watchPairs.forEach(pair=>{
+
+
+let base = pair[0];
+
+let target = pair[1];
+
+
+let rate =
+exchange(base,target);
+
+
+let reverse =
+exchange(target,base);
+
+
+html += `
+
+<div class="pair-card">
+
+<b>
+${base} ⇄ ${target}
+</b>
+
+<div class="rate">
+1 ${base} =
+${rate.toFixed(4)}
+${target}
+</div>
+
+
+<div class="reverse">
+1 ${target} =
+${reverse.toFixed(4)}
+${base}
+</div>
+
+
+</div>
+
+`;
+
+});
 
 
             if(base===target)
