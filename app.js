@@ -84,7 +84,11 @@ async function loadCurrencies(){
 
 
 loadCurrencies();
+setInterval(()=>{
 
+    loadCurrencies();
+
+},60000);
 
 
 
@@ -566,3 +570,12 @@ document
 "change",
 updateConverter
 );
+document
+.getElementById("refresh")
+.addEventListener(
+"click",
+()=>{
+
+loadCurrencies();
+
+});
