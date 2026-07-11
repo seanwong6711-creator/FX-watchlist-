@@ -1,26 +1,22 @@
 {
-  "name": "FX Watchlist",
-  "short_name": "FX Watchlist",
-
-  "description": "XE-style currency monitoring dashboard",
-
+  "name": "FX Dashboard",
+  "short_name": "FX",
+  "description": "Live FX Dashboard",
   "start_url": "./",
-
   "display": "standalone",
-
-  "background_color": "#f4f5f7",
-
-  "theme_color": "#ffffff",
-
+  "background_color": "#f5f6f8",
+  "theme_color": "#f5f6f8",
   "orientation": "portrait",
-
   "icons": [
-
     {
-      "src": "icon.png",
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-
   ]
 }
