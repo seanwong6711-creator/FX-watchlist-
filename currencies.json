@@ -1,0 +1,23 @@
+{
+  "updated": "Today",
+
+  "currencies": {
+    "MYR": "Malaysian Ringgit",
+    "SGD": "Singapore Dollar",
+    "HKD": "Hong Kong Dollar",
+    "USD": "US Dollar",
+    "EUR": "Euro",
+    "JPY": "Japanese Yen",
+    "GBP": "British Pound"
+  },
+
+  "rates": {
+    "USD": 1,
+    "MYR": 4.0000,
+    "SGD": 1.2658,
+    "HKD": 7.8000,
+    "EUR": 0.9200,
+    "JPY": 157.00,
+    "GBP": 0.7900
+  }
+}
