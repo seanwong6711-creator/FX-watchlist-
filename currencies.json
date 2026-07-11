@@ -1,46 +1,74 @@
 {
-  "updated": "11 July 2026",
+  "updated": "Manual database",
 
   "currencies": {
 
-    "MYR": "🇲🇾 Malaysian Ringgit",
-    "SGD": "🇸🇬 Singapore Dollar",
-    "HKD": "🇭🇰 Hong Kong Dollar",
-    "USD": "🇺🇸 US Dollar",
-    "CNY": "🇨🇳 Chinese Yuan",
-    "JPY": "🇯🇵 Japanese Yen",
+    "MYR": "🇲🇾 Malaysia - Ringgit",
+    "SGD": "🇸🇬 Singapore - Dollar",
+    "HKD": "🇭🇰 Hong Kong - Dollar",
+    "USD": "🇺🇸 United States - Dollar",
+    "CNY": "🇨🇳 China - Yuan",
+    "JPY": "🇯🇵 Japan - Yen",
+    "KRW": "🇰🇷 South Korea - Won",
+    "TWD": "🇹🇼 Taiwan - Dollar",
+    "THB": "🇹🇭 Thailand - Baht",
+    "IDR": "🇮🇩 Indonesia - Rupiah",
+    "PHP": "🇵🇭 Philippines - Peso",
+    "VND": "🇻🇳 Vietnam - Dong",
+
     "EUR": "🇪🇺 Euro",
-    "GBP": "🇬🇧 British Pound",
-    "AUD": "🇦🇺 Australian Dollar",
-    "THB": "🇹🇭 Thai Baht"
+    "GBP": "🇬🇧 United Kingdom - Pound",
+    "CHF": "🇨🇭 Switzerland - Franc",
+    "CAD": "🇨🇦 Canada - Dollar",
+    "AUD": "🇦🇺 Australia - Dollar",
+    "NZD": "🇳🇿 New Zealand - Dollar",
+
+    "INR": "🇮🇳 India - Rupee",
+    "AED": "🇦🇪 UAE - Dirham",
+    "SAR": "🇸🇦 Saudi Arabia - Riyal",
+    "QAR": "🇶🇦 Qatar - Riyal",
+    "TRY": "🇹🇷 Turkey - Lira",
+    "ZAR": "🇿🇦 South Africa - Rand",
+    "BRL": "🇧🇷 Brazil - Real",
+    "MXN": "🇲🇽 Mexico - Peso",
+    "RUB": "🇷🇺 Russia - Ruble"
 
   },
 
 
   "rates": {
 
-
     "USD": 1,
 
-    "MYR": 4.0000,
+    "MYR": 4.00,
+    "SGD": 1.27,
+    "HKD": 7.80,
+    "CNY": 7.25,
+    "JPY": 157,
+    "KRW": 1380,
+    "TWD": 32.5,
 
-    "SGD": 1.2658,
+    "THB": 35.8,
+    "IDR": 16500,
+    "PHP": 58.5,
+    "VND": 26000,
 
-    "HKD": 7.8000,
+    "EUR": 0.92,
+    "GBP": 0.79,
+    "CHF": 0.80,
+    "CAD": 1.37,
+    "AUD": 1.52,
+    "NZD": 1.65,
 
-    "CNY": 7.2500,
-
-    "JPY": 157.00,
-
-    "EUR": 0.9200,
-
-    "GBP": 0.7900,
-
-    "AUD": 1.5200,
-
-    "THB": 35.80
-
+    "INR": 86,
+    "AED": 3.67,
+    "SAR": 3.75,
+    "QAR": 3.64,
+    "TRY": 40,
+    "ZAR": 18,
+    "BRL": 5.5,
+    "MXN": 18.5,
+    "RUB": 90
 
   }
-
 }
