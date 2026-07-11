@@ -1,23 +1,46 @@
 {
-  "updated": "Today",
+  "updated": "11 July 2026",
 
   "currencies": {
-    "MYR": "Malaysian Ringgit",
-    "SGD": "Singapore Dollar",
-    "HKD": "Hong Kong Dollar",
-    "USD": "US Dollar",
-    "EUR": "Euro",
-    "JPY": "Japanese Yen",
-    "GBP": "British Pound"
+
+    "MYR": "🇲🇾 Malaysian Ringgit",
+    "SGD": "🇸🇬 Singapore Dollar",
+    "HKD": "🇭🇰 Hong Kong Dollar",
+    "USD": "🇺🇸 US Dollar",
+    "CNY": "🇨🇳 Chinese Yuan",
+    "JPY": "🇯🇵 Japanese Yen",
+    "EUR": "🇪🇺 Euro",
+    "GBP": "🇬🇧 British Pound",
+    "AUD": "🇦🇺 Australian Dollar",
+    "THB": "🇹🇭 Thai Baht"
+
   },
 
+
   "rates": {
+
+
     "USD": 1,
+
     "MYR": 4.0000,
+
     "SGD": 1.2658,
+
     "HKD": 7.8000,
-    "EUR": 0.9200,
+
+    "CNY": 7.2500,
+
     "JPY": 157.00,
-    "GBP": 0.7900
+
+    "EUR": 0.9200,
+
+    "GBP": 0.7900,
+
+    "AUD": 1.5200,
+
+    "THB": 35.80
+
+
   }
+
 }
