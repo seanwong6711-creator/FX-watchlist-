@@ -1,23 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FX Watchlist</title>
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="manifest" href="manifest.json">
+
 </head>
+
 
 <body>
 
+
+<div class="app">
+
+
+<header>
+
 <h1>FX Watchlist</h1>
 
-<input id="search" placeholder="Search currency">
+<input 
+id="search"
+type="text"
+placeholder="Search currency or country..."
+>
 
-<div id="currency-container"></div>
+</header>
+
+
+
+<section id="favorites">
+
+<h2>⭐ Favorites</h2>
+
+<div id="favorite-list"></div>
+
+</section>
+
+
+
+<section>
+
+<h2>Currency Market</h2>
+
+<div id="currency-list"></div>
+
+</section>
+
+
+
+<section id="converter">
+
+<h2>Converter</h2>
+
+
+<input 
+id="amount"
+type="number"
+value="1"
+>
+
+
+<select id="from"></select>
+
+
+<select id="to"></select>
+
+
+<h3 id="conversion-result"></h3>
+
+
+</section>
+
+
+
+<footer>
+
+<p>
+Mid-market FX reference
+</p>
+
+<p id="last-update">
+Updating...
+</p>
+
+</footer>
+
+
+
+</div>
+
+
 
 <script src="app.js"></script>
 
+
 </body>
+
 </html>
